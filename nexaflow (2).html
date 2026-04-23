@@ -1,0 +1,1139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>NexaFlow — AI Growth for Local Businesses</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;font-size:16px}
+:root{
+  --ink:#0d0c0a;
+  --ink2:#1c1b18;
+  --ink3:#2e2d29;
+  --stone:#f7f5f0;
+  --stone2:#eeebe3;
+  --stone3:#e2ddd3;
+  --gold:#b8922a;
+  --gold-lt:#d4aa4a;
+  --gold-pale:#f5edda;
+  --silk:#faf8f3;
+  --mist:rgba(13,12,10,0.06);
+  --mist2:rgba(13,12,10,0.11);
+  --border:rgba(13,12,10,0.09);
+  --border2:rgba(13,12,10,0.16);
+  --r:14px;
+  --rLg:20px;
+  --head:'Cormorant Garamond',Georgia,serif;
+  --body:'Outfit',sans-serif;
+}
+body{background:var(--silk);color:var(--ink);font-family:var(--body);font-weight:300;line-height:1.7;overflow-x:hidden}
+
+/* ── UTILITIES ── */
+.max{max-width:1180px;margin:0 auto;padding:0 5vw}
+.label{font-family:var(--body);font-size:.7rem;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:.9rem}
+h2{font-family:var(--head);font-size:clamp(2.2rem,4.5vw,3.6rem);font-weight:400;line-height:1.1;letter-spacing:-.01em;color:var(--ink)}
+h2 em{font-style:italic;color:var(--gold)}
+.lead{font-size:1.05rem;color:var(--ink3);max-width:520px;line-height:1.8;font-weight:300}
+.center{text-align:center}.center .lead{margin:0 auto}
+
+/* ── NAV ── */
+nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:1.3rem 5vw;background:rgba(250,248,243,.92);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border-bottom:1px solid var(--border)}
+.nav-logo{font-family:var(--head);font-size:1.55rem;font-weight:600;color:var(--ink);letter-spacing:-.02em;text-decoration:none}
+.nav-logo span{color:var(--gold)}
+.nav-links{display:flex;gap:2.2rem;align-items:center}
+.nav-links a{font-size:.82rem;font-weight:400;letter-spacing:.04em;color:var(--ink3);text-decoration:none;transition:color .2s}
+.nav-links a:hover{color:var(--gold)}
+.nav-cta{background:var(--ink);color:var(--silk)!important;padding:.55rem 1.5rem;border-radius:100px;font-size:.8rem!important;font-weight:500!important;letter-spacing:.06em!important;transition:background .2s,transform .15s!important}
+.nav-cta:hover{background:var(--ink2)!important;transform:translateY(-1px)}
+
+/* ── HERO ── */
+.hero{min-height:100vh;display:flex;align-items:center;padding:9rem 5vw 7rem;position:relative;overflow:hidden;background:#0a0905}
+#hero-canvas{position:absolute;inset:0;width:100%;height:100%;z-index:0}
+.hero-inner{position:relative;z-index:1;display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center;width:100%;max-width:1180px;margin:0 auto}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:.6rem;background:rgba(184,146,42,.12);border:1px solid rgba(184,146,42,.3);color:var(--gold-lt);font-size:.72rem;font-weight:500;letter-spacing:.16em;text-transform:uppercase;padding:.4rem 1rem;border-radius:100px;margin-bottom:2rem}
+.hero-eyebrow span{width:5px;height:5px;border-radius:50%;background:var(--gold-lt);animation:blink 2.4s ease-in-out infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.25}}
+h1{font-family:var(--head);font-size:clamp(3rem,5.5vw,5rem);font-weight:300;line-height:1.05;letter-spacing:-.02em;color:#f5f0e8;margin-bottom:1.6rem}
+h1 em{font-style:italic;color:var(--gold-lt);font-weight:400}
+h1 strong{font-weight:600}
+.hero-sub{font-size:1rem;color:rgba(245,240,232,.55);line-height:1.85;max-width:430px;margin-bottom:2.5rem;font-weight:300}
+.hero-actions{display:flex;gap:.9rem;flex-wrap:wrap;align-items:center}
+.btn{display:inline-flex;align-items:center;gap:.5rem;padding:.85rem 2rem;border-radius:100px;font-family:var(--body);font-size:.875rem;font-weight:500;letter-spacing:.03em;text-decoration:none;transition:all .22s;cursor:pointer;border:none}
+.btn-dark{background:var(--gold);color:#0a0905}
+.btn-dark:hover{background:var(--gold-lt);transform:translateY(-2px);box-shadow:0 8px 32px rgba(184,146,42,.35)}
+.btn-outline{background:transparent;color:rgba(245,240,232,.8);border:1px solid rgba(245,240,232,.2)}
+.btn-outline:hover{border-color:rgba(184,146,42,.5);color:var(--gold-lt);transform:translateY(-1px)}
+.btn-arrow{font-size:.8rem;opacity:.6;transition:transform .2s,opacity .2s}
+.btn:hover .btn-arrow{transform:translateX(3px);opacity:1}
+.hero-proof{display:flex;flex-direction:column;gap:1.25rem}
+.proof-card{background:rgba(255,255,255,.04);border:1px solid rgba(245,240,232,.1);border-radius:var(--r);padding:1.5rem 1.75rem;backdrop-filter:blur(16px)}
+.proof-card:hover{border-color:rgba(184,146,42,.25);background:rgba(184,146,42,.06);transition:all .25s}
+.proof-num{font-family:var(--head);font-size:2.4rem;font-weight:500;color:#f5f0e8;line-height:1;margin-bottom:.2rem}
+.proof-num span{color:var(--gold-lt)}
+.proof-lbl{font-size:.8rem;color:rgba(245,240,232,.4);font-weight:300}
+.proof-cards-row{display:grid;grid-template-columns:1fr 1fr;gap:.9rem}
+
+/* ── MARQUEE ── */
+.marquee-strip{background:var(--ink);overflow:hidden;padding:.85rem 0;white-space:nowrap}
+.marquee-inner{display:inline-flex;animation:scroll 28s linear infinite;gap:0}
+@keyframes scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.marquee-item{display:inline-flex;align-items:center;gap:.6rem;padding:0 2.2rem;font-size:.78rem;font-weight:400;letter-spacing:.1em;text-transform:uppercase;color:rgba(250,248,243,.5)}
+.marquee-item b{color:rgba(250,248,243,.9);font-weight:500}
+.marquee-dot{width:3px;height:3px;background:var(--gold-lt);border-radius:50%;flex-shrink:0}
+
+/* ── LOGO CLOUD ── */
+.logo-cloud{background:var(--silk);padding:4.5rem 5vw;border-bottom:1px solid var(--border)}
+.logo-cloud-label{text-align:center;font-size:.7rem;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--ink3);opacity:.45;margin-bottom:2.5rem}
+.logo-track-wrap{overflow:hidden;-webkit-mask-image:linear-gradient(to right,transparent,black 12%,black 88%,transparent);mask-image:linear-gradient(to right,transparent,black 12%,black 88%,transparent)}
+.logo-track{display:flex;gap:0;width:max-content;animation:logoScroll 38s linear infinite}
+.logo-track:hover{animation-play-state:paused}
+@keyframes logoScroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.logo-item{display:inline-flex;align-items:center;justify-content:center;padding:0 3rem;flex-shrink:0}
+.logo-badge{display:inline-flex;align-items:center;gap:.65rem;padding:.65rem 1.4rem;border-radius:100px;font-family:var(--body);font-size:.82rem;font-weight:600;letter-spacing:.01em;white-space:nowrap;border:2px solid transparent}
+.logo-badge svg{width:18px;height:18px;flex-shrink:0}
+.lb-red{background:#fff0f0;color:#c0392b;border-color:#e74c3c}
+.lb-blue{background:#eef4ff;color:#1a56db;border-color:#3b82f6}
+.lb-green{background:#f0fff4;color:#166534;border-color:#22c55e}
+.lb-orange{background:#fff7ed;color:#c2410c;border-color:#f97316}
+.lb-purple{background:#faf5ff;color:#6b21a8;border-color:#a855f7}
+.lb-teal{background:#f0fdfa;color:#0f766e;border-color:#14b8a6}
+.lb-yellow{background:#fefce8;color:#854d0e;border-color:#eab308}
+.lb-rose{background:#fff1f2;color:#be123c;border-color:#f43f5e}
+.lb-indigo{background:#eef2ff;color:#3730a3;border-color:#6366f1}
+.lb-emerald{background:#ecfdf5;color:#065f46;border-color:#10b981}
+
+/* ── WHO WE SERVE ── */
+.who{padding:8rem 5vw}
+.who-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;border:1px solid var(--border);border-radius:var(--rLg);overflow:hidden;background:var(--border)}
+.who-cell{background:var(--silk);padding:2.5rem 2rem;transition:background .25s}
+.who-cell:hover{background:var(--stone)}
+.who-icon{font-size:1.4rem;margin-bottom:1.1rem;display:block}
+.who-cell h3{font-family:var(--head);font-size:1.25rem;font-weight:500;color:var(--ink);margin-bottom:.5rem}
+.who-cell p{font-size:.875rem;color:var(--ink3);line-height:1.75;font-weight:300}
+
+/* ── PAIN ── */
+.pain{padding:8rem 5vw;background:var(--ink)}
+.pain .label{color:var(--gold-lt)}
+.pain h2{color:var(--silk)}
+.pain h2 em{color:var(--gold-lt)}
+.pain .lead{color:rgba(250,248,243,.55)}
+.pain-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-top:4rem}
+.pain-card{border:1px solid rgba(255,255,255,.07);border-radius:var(--r);padding:2.25rem;background:rgba(255,255,255,.03);transition:border-color .25s,background .25s}
+.pain-card:hover{border-color:rgba(184,146,42,.3);background:rgba(184,146,42,.04)}
+.pain-card .tag{font-size:.7rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--gold-lt);margin-bottom:1rem;opacity:.7}
+.pain-card h3{font-family:var(--head);font-size:1.25rem;font-weight:400;color:var(--silk);margin-bottom:.65rem}
+.pain-card p{font-size:.875rem;color:rgba(250,248,243,.48);line-height:1.8;font-weight:300}
+
+/* ── SERVICES ── */
+.services{padding:8rem 5vw;background:var(--stone)}
+.services-intro{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:end;margin-bottom:5rem}
+.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
+.svc{background:var(--silk);border:1px solid var(--border);border-radius:var(--rLg);padding:2.5rem;transition:all .28s;cursor:default}
+.svc:hover{border-color:rgba(184,146,42,.4);transform:translateY(-4px);box-shadow:0 16px 48px rgba(13,12,10,.08)}
+.svc-num{font-family:var(--head);font-size:2.8rem;font-weight:300;color:var(--gold);opacity:.3;line-height:1;margin-bottom:1.5rem}
+.svc h3{font-family:var(--head);font-size:1.3rem;font-weight:500;color:var(--ink);margin-bottom:.75rem}
+.svc p{font-size:.875rem;color:var(--ink3);line-height:1.8;margin-bottom:1.5rem;font-weight:300}
+.svc-list{list-style:none;display:flex;flex-direction:column;gap:.5rem}
+.svc-list li{font-size:.82rem;color:var(--ink3);padding:.4rem 0;border-bottom:1px solid var(--border);display:flex;align-items:flex-start;gap:.7rem;font-weight:300}
+.svc-list li:last-child{border-bottom:none}
+.svc-list li::before{content:'';width:5px;height:5px;border-radius:50%;background:var(--gold);flex-shrink:0;margin-top:.55rem}
+
+/* ── RESULTS ── */
+.results{padding:8rem 5vw;background:var(--silk)}
+.stats-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:1px solid var(--border);border-radius:var(--rLg);overflow:hidden;margin:4rem 0 5rem}
+.stat{padding:2.5rem 2rem;border-right:1px solid var(--border);text-align:center}
+.stat:last-child{border-right:none}
+.stat-big{font-family:var(--head);font-size:3.2rem;font-weight:400;color:var(--ink);line-height:1;margin-bottom:.4rem}
+.stat-big span{color:var(--gold)}
+.stat-lbl{font-size:.8rem;color:var(--ink3);font-weight:300;line-height:1.5}
+.cases{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem}
+.case{background:var(--stone);border:1px solid var(--border);border-radius:var(--rLg);padding:2.75rem;position:relative;overflow:hidden}
+.case::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--gold) 0%,transparent 100%)}
+.case-chip{display:inline-block;background:var(--gold-pale);color:var(--gold);font-size:.7rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase;padding:.3rem .85rem;border-radius:100px;margin-bottom:1.5rem;border:1px solid rgba(184,146,42,.2)}
+.case h3{font-family:var(--head);font-size:1.3rem;font-weight:500;color:var(--ink);margin-bottom:.65rem}
+.case p{font-size:.875rem;color:var(--ink3);line-height:1.8;margin-bottom:2rem;font-weight:300}
+.case-metrics{display:flex;gap:2rem;flex-wrap:wrap}
+.case-m .v{font-family:var(--head);font-size:1.9rem;font-weight:500;color:var(--gold);line-height:1}
+.case-m .l{font-size:.75rem;color:var(--ink3);margin-top:.2rem;font-weight:300}
+
+/* ── PROCESS ── */
+.process{padding:8rem 5vw;background:var(--ink2)}
+.process .label{color:var(--gold-lt)}
+.process h2{color:var(--silk)}
+.process h2 em{color:var(--gold-lt)}
+.process .lead{color:rgba(250,248,243,.5)}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:5rem;position:relative}
+.steps::before{content:'';position:absolute;top:1.75rem;left:12.5%;right:12.5%;height:1px;background:linear-gradient(90deg,transparent,rgba(184,146,42,.3),rgba(184,146,42,.3),transparent)}
+.step{padding:0 1.5rem;text-align:center;position:relative}
+.step-circle{width:3.5rem;height:3.5rem;border-radius:50%;border:1px solid rgba(184,146,42,.35);background:var(--ink2);display:flex;align-items:center;justify-content:center;margin:0 auto 1.75rem;font-family:var(--head);font-size:1.1rem;font-weight:400;color:var(--gold-lt)}
+.step h3{font-family:var(--head);font-size:1.1rem;font-weight:400;color:var(--silk);margin-bottom:.6rem}
+.step p{font-size:.82rem;color:rgba(250,248,243,.42);line-height:1.75;font-weight:300}
+
+/* ── TESTIMONIALS ── */
+.testi{padding:8rem 5vw;background:var(--stone2)}
+.testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:4rem}
+.tcard{background:var(--silk);border:1px solid var(--border);border-radius:var(--rLg);padding:2.25rem;display:flex;flex-direction:column}
+.tcard-stars{display:flex;gap:3px;margin-bottom:1.25rem}
+.tcard-star{width:10px;height:10px;background:var(--gold);clip-path:polygon(50% 0%,61% 35%,98% 35%,68% 57%,79% 91%,50% 70%,21% 91%,32% 57%,2% 35%,39% 35%)}
+.tcard blockquote{font-family:var(--head);font-size:1.05rem;font-weight:300;font-style:italic;color:var(--ink);line-height:1.8;flex:1;margin-bottom:1.75rem}
+.tcard blockquote::before{content:'\201C';font-size:2.5rem;color:var(--gold);line-height:0;vertical-align:-.5rem;margin-right:.1rem;font-family:var(--head)}
+.tauthor{display:flex;align-items:center;gap:.9rem;padding-top:1.25rem;border-top:1px solid var(--border)}
+.tauthor-av{width:38px;height:38px;border-radius:50%;background:var(--gold-pale);border:1px solid rgba(184,146,42,.25);display:flex;align-items:center;justify-content:center;font-size:.75rem;font-weight:500;color:var(--gold);flex-shrink:0}
+.tauthor-name{font-size:.875rem;font-weight:500;color:var(--ink);margin-bottom:.1rem}
+.tauthor-role{font-size:.78rem;color:var(--ink3);font-weight:300}
+
+/* ── PRICING ── */
+.pricing{padding:8rem 5vw;background:var(--silk)}
+.pricing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:4rem}
+.plan{background:var(--stone);border:1px solid var(--border);border-radius:var(--rLg);padding:2.75rem;position:relative;transition:all .25s}
+.plan:hover{transform:translateY(-3px);box-shadow:0 12px 40px rgba(13,12,10,.07)}
+.plan.featured{background:var(--ink);border-color:var(--ink)}
+.plan-badge{position:absolute;top:-13px;left:50%;transform:translateX(-50%);background:var(--gold);color:#fff;font-size:.68rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;padding:.3rem 1.1rem;border-radius:100px;white-space:nowrap}
+.plan-tier{font-size:.72rem;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-bottom:.9rem}
+.plan.featured .plan-tier{color:var(--gold-lt)}
+.plan-price{font-family:var(--head);font-size:3rem;font-weight:400;color:var(--ink);line-height:1;margin-bottom:.25rem}
+.plan.featured .plan-price{color:var(--silk)}
+.plan-price sub{font-size:1rem;font-weight:300;vertical-align:super}
+.plan-price sup{font-size:1rem}
+.plan-cadence{font-size:.8rem;color:var(--ink3);margin-bottom:.5rem;font-weight:300}
+.plan.featured .plan-cadence{color:rgba(250,248,243,.45)}
+.plan-desc{font-size:.875rem;color:var(--ink3);line-height:1.7;padding-bottom:1.75rem;margin-bottom:1.75rem;border-bottom:1px solid var(--border);font-weight:300}
+.plan.featured .plan-desc{color:rgba(250,248,243,.45);border-color:rgba(255,255,255,.1)}
+.plan-features{list-style:none;display:flex;flex-direction:column;gap:.75rem;margin-bottom:2.25rem}
+.plan-features li{font-size:.85rem;color:var(--ink3);display:flex;align-items:flex-start;gap:.7rem;font-weight:300;line-height:1.5}
+.plan.featured .plan-features li{color:rgba(250,248,243,.6)}
+.plan-features li.on{color:var(--ink)}
+.plan.featured .plan-features li.on{color:var(--silk)}
+.plan-features li.on::before{content:'✓';color:var(--gold);font-weight:600;flex-shrink:0;font-size:.8rem}
+.plan-features li.off{opacity:.35}
+.plan-features li.off::before{content:'–';flex-shrink:0;font-size:.8rem}
+.plan-btn{display:block;text-align:center;padding:.9rem;border-radius:100px;font-size:.85rem;font-weight:500;letter-spacing:.03em;text-decoration:none;transition:all .2s;border:1px solid var(--border2);color:var(--ink);background:transparent}
+.plan-btn:hover{border-color:var(--ink);background:var(--ink);color:var(--silk)}
+.plan.featured .plan-btn{background:var(--gold);border-color:var(--gold);color:#fff}
+.plan.featured .plan-btn:hover{background:var(--gold-lt);border-color:var(--gold-lt)}
+
+/* ── FAQ ── */
+.faq{padding:8rem 5vw;background:var(--stone)}
+.faq-body{display:grid;grid-template-columns:1fr 1fr;gap:4rem;margin-top:4rem}
+.faq-item{border-bottom:1px solid var(--border);padding:1.5rem 0}
+.faq-item:first-child{border-top:1px solid var(--border)}
+.faq-q{display:flex;justify-content:space-between;align-items:center;gap:1rem;cursor:pointer;user-select:none}
+.faq-q h3{font-family:var(--head);font-size:1.1rem;font-weight:500;color:var(--ink)}
+.faq-toggle{width:26px;height:26px;border-radius:50%;border:1px solid var(--border2);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all .2s;color:var(--ink3);font-size:.9rem}
+.faq-item.open .faq-toggle{background:var(--ink);color:var(--silk);border-color:var(--ink);transform:rotate(45deg)}
+.faq-a{font-size:.875rem;color:var(--ink3);line-height:1.85;max-height:0;overflow:hidden;transition:max-height .35s ease,margin .2s;font-weight:300}
+.faq-item.open .faq-a{max-height:200px;margin-top:.85rem}
+
+/* ── CTA BAND ── */
+.cta-band{padding:8rem 5vw;background:var(--gold-pale);border-top:1px solid rgba(184,146,42,.18);border-bottom:1px solid rgba(184,146,42,.18)}
+.cta-band-inner{max-width:700px;margin:0 auto;text-align:center}
+.cta-band h2{font-size:clamp(2.4rem,5vw,4rem);margin-bottom:1rem}
+.cta-band .lead{margin:0 auto 2.5rem}
+.cta-note{margin-top:1.1rem;font-size:.8rem;color:var(--ink3);font-weight:300}
+
+/* ── CONTACT ── */
+.contact{padding:8rem 5vw;background:var(--ink)}
+.contact .label{color:var(--gold-lt)}
+.contact h2{color:var(--silk)}
+.contact h2 em{color:var(--gold-lt)}
+.contact .lead{color:rgba(250,248,243,.45)}
+.contact-grid{display:grid;grid-template-columns:1fr 1.2fr;gap:6rem;margin-top:5rem;align-items:start}
+.contact-aside{}
+.contact-points{display:flex;flex-direction:column;gap:1.5rem;margin-top:2.5rem}
+.cp{display:flex;gap:1rem;align-items:flex-start}
+.cp-ico{width:40px;height:40px;border-radius:10px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);display:flex;align-items:center;justify-content:center;font-size:.9rem;flex-shrink:0;color:var(--gold-lt)}
+.cp-lbl{font-size:.75rem;font-weight:500;letter-spacing:.06em;text-transform:uppercase;color:rgba(250,248,243,.35);margin-bottom:.15rem}
+.cp-val{font-size:.9rem;color:rgba(250,248,243,.8);font-weight:300}
+.trust-row{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:2.75rem}
+.trust-chip{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.09);border-radius:100px;padding:.35rem .9rem;font-size:.75rem;color:rgba(250,248,243,.45);display:flex;align-items:center;gap:.4rem}
+.trust-chip::before{content:'';width:5px;height:5px;border-radius:50%;background:var(--gold-lt);flex-shrink:0}
+form.cform{display:flex;flex-direction:column;gap:1rem}
+.frow{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.fg{display:flex;flex-direction:column;gap:.4rem}
+.fg label{font-size:.75rem;font-weight:400;letter-spacing:.06em;color:rgba(250,248,243,.35);text-transform:uppercase}
+.fg input,.fg select,.fg textarea{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:10px;padding:.85rem 1.1rem;color:rgba(250,248,243,.85);font-family:var(--body);font-size:.9rem;font-weight:300;transition:border-color .2s;-webkit-appearance:none;resize:none}
+.fg input::placeholder,.fg textarea::placeholder{color:rgba(250,248,243,.2)}
+.fg input:focus,.fg select:focus,.fg textarea:focus{outline:none;border-color:rgba(184,146,42,.45)}
+.fg select option{background:#1c1b18;color:#faf8f3}
+.fg textarea{min-height:110px}
+.btn-submit{background:var(--gold);color:#fff;padding:1rem 2rem;border-radius:100px;border:none;font-family:var(--body);font-size:.875rem;font-weight:500;letter-spacing:.04em;cursor:pointer;transition:all .2s;width:100%}
+.btn-submit:hover{background:var(--gold-lt);transform:translateY(-2px);box-shadow:0 8px 30px rgba(184,146,42,.3)}
+
+/* ── FOOTER ── */
+footer{background:var(--ink2);border-top:1px solid rgba(255,255,255,.06);padding:4rem 5vw 2.5rem}
+.footer-top{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:3rem;margin-bottom:3rem}
+.footer-brand .nav-logo{display:block;margin-bottom:.85rem;font-size:1.35rem}
+.footer-tagline{font-size:.82rem;color:rgba(250,248,243,.35);line-height:1.7;font-weight:300;max-width:240px}
+.footer-col h4{font-size:.68rem;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:rgba(250,248,243,.3);margin-bottom:1.1rem}
+.footer-col a{display:block;font-size:.82rem;color:rgba(250,248,243,.45);text-decoration:none;margin-bottom:.65rem;font-weight:300;transition:color .2s}
+.footer-col a:hover{color:rgba(250,248,243,.85)}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.06);padding-top:1.75rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
+.footer-bottom p{font-size:.75rem;color:rgba(250,248,243,.25);font-weight:300}
+
+/* ── REVEAL ── */
+.r{opacity:0;transform:translateY(22px);transition:opacity .65s ease,transform .65s ease}
+.r.in{opacity:1;transform:none}
+.r1{transition-delay:.08s}.r2{transition-delay:.16s}.r3{transition-delay:.24s}.r4{transition-delay:.32s}
+
+/* ── RESPONSIVE ── */
+@media(max-width:960px){
+  .hero-inner{grid-template-columns:1fr;gap:3rem}
+  .hero-proof{display:none}
+  .who-grid{grid-template-columns:1fr 1fr}
+  .pain-grid,.services-grid,.testi-grid,.pricing-grid,.faq-body,.contact-grid,.cases{grid-template-columns:1fr}
+  .stats-strip{grid-template-columns:1fr 1fr}
+  .stat{border-bottom:1px solid var(--border)}
+  .stat:nth-child(2n){border-right:none}
+  .steps{grid-template-columns:1fr 1fr;gap:2rem}
+  .steps::before{display:none}
+  .services-intro{grid-template-columns:1fr}
+  .footer-top{grid-template-columns:1fr 1fr}
+  .nav-links{display:none}
+}
+@media(max-width:600px){
+  .who-grid{grid-template-columns:1fr}
+  .stats-strip{grid-template-columns:1fr}
+  .stat{border-right:none}
+  .frow{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="#">Nexa<span>Flow</span></a>
+  <div class="nav-links">
+    <a href="#who">Industries</a>
+    <a href="#services">Services</a>
+    <a href="#results">Results</a>
+    <a href="#pricing">Pricing</a>
+    <a href="#faq">FAQ</a>
+    <a href="#contact" class="nav-cta">Book a Free Call</a>
+  </div>
+</nav>
+
+<!-- ── HERO ── -->
+<section class="hero">
+  <canvas id="hero-canvas"></canvas>
+  <div class="hero-inner">
+    <div class="r">
+      <div class="hero-eyebrow"><span></span>AI-Powered Digital Growth</div>
+      <h1>The growth engine<br>your <em>local business</em><br><strong>deserves.</strong></h1>
+      <p class="hero-sub">We build stunning websites, dominate your local search rankings, and deploy AI that works for you around the clock — so you can focus on running your business.</p>
+      <div class="hero-actions">
+        <a href="#contact" class="btn btn-dark">Book a Free Strategy Call <span class="btn-arrow">→</span></a>
+        <a href="#results" class="btn btn-outline">See Real Results</a>
+      </div>
+    </div>
+    <div class="hero-proof r r1">
+      <div class="proof-cards-row">
+        <div class="proof-card">
+          <div class="proof-num"><span>3.2</span>×</div>
+          <div class="proof-lbl">More Google traffic on average</div>
+        </div>
+        <div class="proof-card">
+          <div class="proof-num"><span>47</span>%</div>
+          <div class="proof-lbl">Increase in inbound leads</div>
+        </div>
+        <div class="proof-card">
+          <div class="proof-num"><span>18</span>h</div>
+          <div class="proof-lbl">Saved weekly via automation</div>
+        </div>
+        <div class="proof-card">
+          <div class="proof-num">$<span>2.4</span>K</div>
+          <div class="proof-lbl">Avg. extra revenue per month</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── MARQUEE ── -->
+<div class="marquee-strip" aria-hidden="true">
+  <div class="marquee-inner">
+    <span class="marquee-item"><span class="marquee-dot"></span><b>Restaurants</b></span>
+    <span class="marquee-item"><span class="marquee-dot"></span><b>Assisted Living</b></span>
+    <span class="marquee-item"><span class="marquee-dot"></span><b>Moving Companies</b></span>
+    <span class="marquee-item"><span class="marquee-dot"></span><b>Auto Shops</b></span>
+    <span class="marquee-item"><span class="marquee-dot"></span><b>Catering Services</b></span>
+    <span class="marquee-item"><span class="marquee-dot"></span><b>General Contractors</b></span>
+    <span class="marquee-item"><span class="marquee-dot"></span><b>Plumbing &amp; HVAC</b></span>
+    <span class="marquee-item"><span class="marquee-dot"></span><b>Landscaping</b></span>
+    <span class="marquee-item"><span class="marquee-dot"></span><b>Cleaning Services</b></span>
+    <span class="marquee-item"><span class="marquee-dot"></span><b>Salons &amp; Spas</b></span>
+    <span class="marquee-item"><span class="marquee-dot"></span><b>Cafés</b></span>
+    <span class="marquee-item"><span class="marquee-dot"></span><b>Memory Care</b></span>
+    <span class="marquee-item"><span class="marquee-dot"></span><b>Restaurants</b></span>
+    <span class="marquee-item"><span class="marquee-dot"></span><b>Assisted Living</b></span>
+    <span class="marquee-item"><span class="marquee-dot"></span><b>Moving Companies</b></span>
+    <span class="marquee-item"><span class="marquee-dot"></span><b>Auto Shops</b></span>
+    <span class="marquee-item"><span class="marquee-dot"></span><b>Catering Services</b></span>
+    <span class="marquee-item"><span class="marquee-dot"></span><b>General Contractors</b></span>
+    <span class="marquee-item"><span class="marquee-dot"></span><b>Plumbing &amp; HVAC</b></span>
+    <span class="marquee-item"><span class="marquee-dot"></span><b>Landscaping</b></span>
+    <span class="marquee-item"><span class="marquee-dot"></span><b>Cleaning Services</b></span>
+    <span class="marquee-item"><span class="marquee-dot"></span><b>Salons &amp; Spas</b></span>
+    <span class="marquee-item"><span class="marquee-dot"></span><b>Cafés</b></span>
+    <span class="marquee-item"><span class="marquee-dot"></span><b>Memory Care</b></span>
+  </div>
+</div>
+
+<!-- ── LOGO CLOUD ── -->
+<section class="logo-cloud">
+  <div class="logo-cloud-label">Trusted by local businesses using tools you already know</div>
+  <div class="logo-track-wrap">
+    <div class="logo-track">
+
+      <div class="logo-item"><div class="logo-badge lb-red"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 9h6M9 12h6M9 15h4"/></svg>Squarespace</div></div>
+
+      <div class="logo-item"><div class="logo-badge lb-blue"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9V8h2v8zm4 0h-2V8h2v8z"/></svg>Google Business</div></div>
+
+      <div class="logo-item"><div class="logo-badge lb-orange"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>WhatsApp &amp; SMS</div></div>
+
+      <div class="logo-item"><div class="logo-badge lb-green"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>Google Analytics</div></div>
+
+      <div class="logo-item"><div class="logo-badge lb-purple"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>Meta Ads</div></div>
+
+      <div class="logo-item"><div class="logo-badge lb-teal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>Mailchimp</div></div>
+
+      <div class="logo-item"><div class="logo-badge lb-yellow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>Google Ads</div></div>
+
+      <div class="logo-item"><div class="logo-badge lb-rose"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 2H7a5 5 0 0 0-5 5v10a5 5 0 0 0 5 5h10a5 5 0 0 0 5-5V7a5 5 0 0 0-5-5z"/><circle cx="12" cy="12" r="3"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>Instagram</div></div>
+
+      <div class="logo-item"><div class="logo-badge lb-indigo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 2H3v16h5v4l4-4h5l4-4V2zM11 11V7M16 11V7"/></svg>OpenAI / GPT</div></div>
+
+      <div class="logo-item"><div class="logo-badge lb-emerald"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>Yelp &amp; Reviews</div></div>
+
+      <div class="logo-item"><div class="logo-badge lb-blue"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 3H8a2 2 0 0 0-2 2v2h12V5a2 2 0 0 0-2-2z"/></svg>Calendly</div></div>
+
+      <div class="logo-item"><div class="logo-badge lb-green"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.56 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>Twilio SMS</div></div>
+
+      <!-- duplicate for seamless loop -->
+      <div class="logo-item"><div class="logo-badge lb-red"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 9h6M9 12h6M9 15h4"/></svg>Squarespace</div></div>
+      <div class="logo-item"><div class="logo-badge lb-blue"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9V8h2v8zm4 0h-2V8h2v8z"/></svg>Google Business</div></div>
+      <div class="logo-item"><div class="logo-badge lb-orange"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>WhatsApp &amp; SMS</div></div>
+      <div class="logo-item"><div class="logo-badge lb-green"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>Google Analytics</div></div>
+      <div class="logo-item"><div class="logo-badge lb-purple"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>Meta Ads</div></div>
+      <div class="logo-item"><div class="logo-badge lb-teal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>Mailchimp</div></div>
+      <div class="logo-item"><div class="logo-badge lb-yellow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>Google Ads</div></div>
+      <div class="logo-item"><div class="logo-badge lb-rose"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 2H7a5 5 0 0 0-5 5v10a5 5 0 0 0 5 5h10a5 5 0 0 0 5-5V7a5 5 0 0 0-5-5z"/><circle cx="12" cy="12" r="3"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>Instagram</div></div>
+      <div class="logo-item"><div class="logo-badge lb-indigo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 2H3v16h5v4l4-4h5l4-4V2zM11 11V7M16 11V7"/></svg>OpenAI / GPT</div></div>
+      <div class="logo-item"><div class="logo-badge lb-emerald"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>Yelp &amp; Reviews</div></div>
+      <div class="logo-item"><div class="logo-badge lb-blue"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 3H8a2 2 0 0 0-2 2v2h12V5a2 2 0 0 0-2-2z"/></svg>Calendly</div></div>
+      <div class="logo-item"><div class="logo-badge lb-green"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.56 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>Twilio SMS</div></div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── WHO WE SERVE ── -->
+<section class="who" id="who">
+  <div class="max">
+    <div class="center r">
+      <div class="label">Who We Serve</div>
+      <h2>Built for the businesses<br>that keep cities <em>running</em></h2>
+    </div>
+    <div class="who-grid" style="margin-top:3.5rem">
+      <div class="who-cell r r1">
+        <span class="who-icon">🍽️</span>
+        <h3>Restaurants &amp; Cafés</h3>
+        <p>Fill more tables, generate reservations on autopilot, and build a loyal repeat customer base with AI-powered marketing and a site that converts every visitor.</p>
+      </div>
+      <div class="who-cell r r2">
+        <span class="who-icon">🏠</span>
+        <h3>Assisted Living &amp; Senior Care</h3>
+        <p>Fill open beds faster, build trust with families, and automate the entire inquiry-to-tour pipeline so your team stays focused on residents — not admin.</p>
+      </div>
+      <div class="who-cell r r3">
+        <span class="who-icon">🚛</span>
+        <h3>Moving Companies</h3>
+        <p>Dominate local search, capture quote requests 24/7, and follow up automatically so no lead ever falls through the cracks while your trucks are on the road.</p>
+      </div>
+      <div class="who-cell r r1">
+        <span class="who-icon">🔧</span>
+        <h3>Auto Shops &amp; Mechanics</h3>
+        <p>Get found the moment someone needs a mechanic, generate 5-star reviews on autopilot, and bring past customers back with intelligent service reminders.</p>
+      </div>
+      <div class="who-cell r r2">
+        <span class="who-icon">🍱</span>
+        <h3>Catering Services</h3>
+        <p>Win corporate events, weddings, and private parties with a portfolio site that showcases your work beautifully and an inquiry system that never sleeps.</p>
+      </div>
+      <div class="who-cell r r3">
+        <span class="who-icon">🏗️</span>
+        <h3>Contractors &amp; Trades</h3>
+        <p>Stop chasing jobs — let qualified homeowners come to you. We build lead machines for roofers, plumbers, HVAC specialists, and general contractors.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── PAIN ── -->
+<section class="pain" id="pain">
+  <div class="max">
+    <div class="r">
+      <div class="label">The Problem</div>
+      <h2>Every day offline<br>is revenue <em>walking away</em></h2>
+      <p class="lead" style="margin-top:1rem">Whether you're running a moving truck or a care home — the patterns are the same. Here's what's quietly costing you.</p>
+    </div>
+    <div class="pain-grid">
+      <div class="pain-card r r1">
+        <div class="tag">Visibility</div>
+        <h3>You're invisible on Google</h3>
+        <p>When someone searches "best restaurant near me" or "moving company in [your city]" — your competitors appear, you don't. That's a real customer choosing them over you, every single day.</p>
+      </div>
+      <div class="pain-card r r2">
+        <div class="tag">First Impression</div>
+        <h3>Your website drives people away</h3>
+        <p>A slow, outdated or confusing website is worse than no website. 75% of visitors judge credibility in under 5 seconds — and leave silently if they don't like what they see.</p>
+      </div>
+      <div class="pain-card r r1">
+        <div class="tag">Operations</div>
+        <h3>Manual tasks eat your time</h3>
+        <p>Answering the same questions, following up on quotes, managing bookings by hand — these hours add up to weeks per year that you'll never get back.</p>
+      </div>
+      <div class="pain-card r r2">
+        <div class="tag">Revenue</div>
+        <h3>You're leaving money on the table</h3>
+        <p>Without automated follow-ups, review generation, and retention campaigns, you're quietly losing 20–40% of potential recurring revenue. AI recovers it for you automatically.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── SERVICES ── -->
+<section class="services" id="services">
+  <div class="max">
+    <div class="services-intro">
+      <div class="r">
+        <div class="label">Our Services</div>
+        <h2>Everything you need.<br><em>Nothing you don't.</em></h2>
+      </div>
+      <div class="r r1">
+        <p class="lead">We don't sell you tools you'll never use. We deliver complete, done-for-you solutions built specifically for local businesses with real goals and tight schedules.</p>
+      </div>
+    </div>
+    <div class="services-grid">
+      <div class="svc r">
+        <div class="svc-num">01</div>
+        <h3>Website Design &amp; Development</h3>
+        <p>A beautiful, fast, conversion-optimized website that makes the right first impression and turns visitors into paying customers — built on Squarespace for easy management.</p>
+        <ul class="svc-list">
+          <li>Custom design tailored to your brand</li>
+          <li>Mobile-first &amp; lightning fast</li>
+          <li>Online booking &amp; quote request forms</li>
+          <li>Menu, gallery, or service showcase</li>
+          <li>Google Maps &amp; contact integration</li>
+          <li>Live in under 2 weeks</li>
+        </ul>
+      </div>
+      <div class="svc r r1">
+        <div class="svc-num">02</div>
+        <h3>Local SEO &amp; Online Visibility</h3>
+        <p>Get found by the right people in your city. We optimize your entire online presence so you rank at the top when potential customers are actively searching for you.</p>
+        <ul class="svc-list">
+          <li>Google Business Profile optimization</li>
+          <li>Local keyword targeting &amp; on-page SEO</li>
+          <li>Automated review generation system</li>
+          <li>Directory &amp; citation building</li>
+          <li>Competitor gap analysis</li>
+          <li>Monthly ranking &amp; traffic reports</li>
+        </ul>
+      </div>
+      <div class="svc r r2">
+        <div class="svc-num">03</div>
+        <h3>AI Automation &amp; Chatbots</h3>
+        <p>Let AI handle the repetitive work — answering FAQs, qualifying leads, booking appointments — 24/7, even when you're closed or simply too busy to respond.</p>
+        <ul class="svc-list">
+          <li>Custom-trained AI website chatbot</li>
+          <li>Automated lead capture &amp; follow-up</li>
+          <li>Reservation &amp; inquiry handling</li>
+          <li>WhatsApp &amp; SMS automation</li>
+          <li>Appointment &amp; estimate scheduling</li>
+          <li>Monthly performance dashboard</li>
+        </ul>
+      </div>
+      <div class="svc r">
+        <div class="svc-num">04</div>
+        <h3>Revenue Growth System</h3>
+        <p>Automated systems that bring customers back, generate referrals, and increase average order value — turning one-time visitors into loyal, recurring revenue.</p>
+        <ul class="svc-list">
+          <li>Email &amp; SMS marketing campaigns</li>
+          <li>Loyalty &amp; referral program setup</li>
+          <li>Upsell &amp; cross-sell automation</li>
+          <li>Birthday &amp; occasion-based flows</li>
+          <li>Win-back campaigns for past clients</li>
+          <li>Revenue tracking dashboard</li>
+        </ul>
+      </div>
+      <div class="svc r r1">
+        <div class="svc-num">05</div>
+        <h3>Social Media &amp; Content</h3>
+        <p>Consistent, professional social presence that builds trust and keeps you top-of-mind — without you spending hours on it every single week.</p>
+        <ul class="svc-list">
+          <li>Monthly content calendar</li>
+          <li>Professional post design</li>
+          <li>Instagram &amp; Facebook management</li>
+          <li>Reel &amp; short video templates</li>
+          <li>Community engagement strategy</li>
+          <li>Paid ad campaign setup &amp; management</li>
+        </ul>
+      </div>
+      <div class="svc r r2">
+        <div class="svc-num">06</div>
+        <h3>Full Digital Transformation</h3>
+        <p>For businesses ready to go all-in. A full audit of your digital presence and a custom roadmap to transform how you attract, serve, and retain customers.</p>
+        <ul class="svc-list">
+          <li>Complete digital audit &amp; strategy</li>
+          <li>All services included</li>
+          <li>Dedicated account manager</li>
+          <li>Weekly strategy calls</li>
+          <li>Priority support &amp; faster delivery</li>
+          <li>Quarterly growth reviews</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── RESULTS ── -->
+<section class="results" id="results">
+  <div class="max">
+    <div class="center r">
+      <div class="label">Real Results</div>
+      <h2>Numbers that<br>speak for themselves</h2>
+      <p class="lead" style="margin-top:1rem">Average results our clients see within their first 90 days.</p>
+    </div>
+    <div class="stats-strip r">
+      <div class="stat">
+        <div class="stat-big"><span>3.2</span>×</div>
+        <div class="stat-lbl">More website visitors from Google search</div>
+      </div>
+      <div class="stat">
+        <div class="stat-big"><span>47</span>%</div>
+        <div class="stat-lbl">Increase in inbound leads &amp; bookings</div>
+      </div>
+      <div class="stat">
+        <div class="stat-big"><span>18</span>h</div>
+        <div class="stat-lbl">Saved weekly through AI automation</div>
+      </div>
+      <div class="stat">
+        <div class="stat-big">$<span>2.4K</span></div>
+        <div class="stat-lbl">Average additional monthly revenue</div>
+      </div>
+    </div>
+    <div class="cases">
+      <div class="case r">
+        <div class="case-chip">Restaurant — Miami, FL</div>
+        <h3>Marco's Italian Kitchen</h3>
+        <p>Family-owned Italian restaurant with no web presence and zero Google visibility. We built their site, optimized their Google profile, and launched a custom AI chatbot handling reservations and FAQs around the clock.</p>
+        <div class="case-metrics">
+          <div class="case-m"><div class="v">+312%</div><div class="l">Google impressions</div></div>
+          <div class="case-m"><div class="v">+58%</div><div class="l">Weekly reservations</div></div>
+          <div class="case-m"><div class="v">$3.1K</div><div class="l">Extra monthly revenue</div></div>
+        </div>
+      </div>
+      <div class="case r r1">
+        <div class="case-chip">Moving Company — Charlotte, NC</div>
+        <h3>Swift Movers</h3>
+        <p>Two-truck operation relying entirely on word-of-mouth. We built a quote-request website, launched targeted Google Ads, and set up automated SMS follow-up for every new inquiry — including after-hours.</p>
+        <div class="case-metrics">
+          <div class="case-m"><div class="v">+29</div><div class="l">New jobs in 45 days</div></div>
+          <div class="case-m"><div class="v">4.2×</div><div class="l">Return on ad spend</div></div>
+          <div class="case-m"><div class="v">$8.7K</div><div class="l">Extra monthly revenue</div></div>
+        </div>
+      </div>
+      <div class="case r">
+        <div class="case-chip">Assisted Living — Austin, TX</div>
+        <h3>Sunrise Senior Living</h3>
+        <p>Small residential care home struggling to fill beds. We redesigned their website, launched a lead funnel, and automated all follow-up — turning every online inquiry into a scheduled in-person tour automatically.</p>
+        <div class="case-metrics">
+          <div class="case-m"><div class="v">+4</div><div class="l">New residents in 60 days</div></div>
+          <div class="case-m"><div class="v">67%</div><div class="l">Faster lead response</div></div>
+          <div class="case-m"><div class="v">4.9★</div><div class="l">Google review rating</div></div>
+        </div>
+      </div>
+      <div class="case r r1">
+        <div class="case-chip">Auto Shop — Dallas, TX</div>
+        <h3>Cruz Auto Repair</h3>
+        <p>Independent mechanic with loyal customers but invisible online. We built a modern booking site, ran a targeted local SEO campaign, and added automated review requests and service reminders via SMS.</p>
+        <div class="case-metrics">
+          <div class="case-m"><div class="v">#1</div><div class="l">Google rank locally</div></div>
+          <div class="case-m"><div class="v">+41%</div><div class="l">Repeat customers</div></div>
+          <div class="case-m"><div class="v">102</div><div class="l">New Google reviews</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── PROCESS ── -->
+<section class="process" id="how">
+  <div class="max">
+    <div class="center r">
+      <div class="label">The Process</div>
+      <h2>From zero to growing<br>in <em>four simple steps</em></h2>
+      <p class="lead" style="margin-top:1rem;max-width:480px;margin-left:auto;margin-right:auto">We do the heavy lifting. You stay focused on what you do best.</p>
+    </div>
+    <div class="steps">
+      <div class="step r r1">
+        <div class="step-circle">I</div>
+        <h3>Free Strategy Call</h3>
+        <p>We learn about your business, goals, and biggest challenges — no sales pressure, just an honest conversation about what you actually need.</p>
+      </div>
+      <div class="step r r2">
+        <div class="step-circle">II</div>
+        <h3>Custom Game Plan</h3>
+        <p>We build a tailored roadmap — the right services, realistic timelines, and projected results. You approve everything before we start.</p>
+      </div>
+      <div class="step r r3">
+        <div class="step-circle">III</div>
+        <h3>We Build &amp; Launch</h3>
+        <p>Our team handles design, copy, tech setup, and automation — all of it. We launch fast and keep you in the loop the whole way through.</p>
+      </div>
+      <div class="step r r4">
+        <div class="step-circle">IV</div>
+        <h3>You Grow, We Optimize</h3>
+        <p>We monitor results, improve what's working, and scale what's driving growth. An ongoing partnership, not a one-time project.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── TESTIMONIALS ── -->
+<section class="testi" id="testimonials">
+  <div class="max">
+    <div class="center r">
+      <div class="label">Client Stories</div>
+      <h2>Don't take<br>our <em>word for it</em></h2>
+    </div>
+    <div class="testi-grid">
+      <div class="tcard r">
+        <div class="tcard-stars"><span class="tcard-star"></span><span class="tcard-star"></span><span class="tcard-star"></span><span class="tcard-star"></span><span class="tcard-star"></span></div>
+        <blockquote>Before NexaFlow, our restaurant didn't even show up on Google. Now we're the first result in our neighborhood and we get 20+ reservations a week just from the website. Best investment I've ever made.</blockquote>
+        <div class="tauthor"><div class="tauthor-av">LC</div><div><div class="tauthor-name">Luis Castillo</div><div class="tauthor-role">Owner, Casa Castillo Restaurant</div></div></div>
+      </div>
+      <div class="tcard r r1">
+        <div class="tcard-stars"><span class="tcard-star"></span><span class="tcard-star"></span><span class="tcard-star"></span><span class="tcard-star"></span><span class="tcard-star"></span></div>
+        <blockquote>I run a small moving company. I had no idea how much business I was losing without a proper website. NexaFlow built everything — now I'm fully booked two weeks out and had to hire two more guys.</blockquote>
+        <div class="tauthor"><div class="tauthor-av">DM</div><div><div class="tauthor-name">Darnell Mitchell</div><div class="tauthor-role">Owner, Mitchell's Moving Co.</div></div></div>
+      </div>
+      <div class="tcard r r2">
+        <div class="tcard-stars"><span class="tcard-star"></span><span class="tcard-star"></span><span class="tcard-star"></span><span class="tcard-star"></span><span class="tcard-star"></span></div>
+        <blockquote>The AI chatbot alone saves me hours every week. Families were calling with the same questions — now the bot handles everything and books tours automatically. We filled three beds in 45 days.</blockquote>
+        <div class="tauthor"><div class="tauthor-av">PB</div><div><div class="tauthor-name">Patricia Bowman</div><div class="tauthor-role">Director, Harmony Gardens Care Home</div></div></div>
+      </div>
+      <div class="tcard r">
+        <div class="tcard-stars"><span class="tcard-star"></span><span class="tcard-star"></span><span class="tcard-star"></span><span class="tcard-star"></span><span class="tcard-star"></span></div>
+        <blockquote>My auto shop had loyal customers but nothing online. Within six weeks I had 80 new Google reviews and my bays are consistently full. The automated service reminders alone pay for everything.</blockquote>
+        <div class="tauthor"><div class="tauthor-av">RC</div><div><div class="tauthor-name">Roberto Cruz</div><div class="tauthor-role">Owner, Cruz Auto Repair</div></div></div>
+      </div>
+      <div class="tcard r r1">
+        <div class="tcard-stars"><span class="tcard-star"></span><span class="tcard-star"></span><span class="tcard-star"></span><span class="tcard-star"></span><span class="tcard-star"></span></div>
+        <blockquote>As a contractor I was always chasing the next job. NexaFlow built a system that brings qualified leads to me. I get 4–6 detailed quote requests every week now without lifting a single finger.</blockquote>
+        <div class="tauthor"><div class="tauthor-av">JW</div><div><div class="tauthor-name">James Whitfield</div><div class="tauthor-role">Owner, Whitfield General Contracting</div></div></div>
+      </div>
+      <div class="tcard r r2">
+        <div class="tcard-stars"><span class="tcard-star"></span><span class="tcard-star"></span><span class="tcard-star"></span><span class="tcard-star"></span><span class="tcard-star"></span></div>
+        <blockquote>My catering business doubled in one season. NexaFlow rebuilt my website and got me on the first page of Google. I now get corporate event inquiries I never would've received before. It changed everything.</blockquote>
+        <div class="tauthor"><div class="tauthor-av">MR</div><div><div class="tauthor-name">Maria Reyes</div><div class="tauthor-role">Owner, Reyes Catering &amp; Events</div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── PRICING ── -->
+<section class="pricing" id="pricing">
+  <div class="max">
+    <div class="center r">
+      <div class="label">Pricing</div>
+      <h2>Simple, honest pricing.<br><em>No hidden fees.</em></h2>
+      <p class="lead" style="margin-top:1rem">All plans include a free onboarding call and a 30-day results guarantee. Cancel anytime.</p>
+    </div>
+    <div class="pricing-grid">
+      <div class="plan r">
+        <div class="plan-tier">Starter</div>
+        <div class="plan-price"><sub>$</sub>497</div>
+        <div class="plan-cadence">per month</div>
+        <div class="plan-desc">Perfect for getting your digital foundation right and becoming visible online.</div>
+        <ul class="plan-features">
+          <li class="on">Professional Squarespace website</li>
+          <li class="on">Google Business Profile setup &amp; optimization</li>
+          <li class="on">Basic local SEO</li>
+          <li class="on">Mobile-optimized design</li>
+          <li class="on">Contact &amp; booking form</li>
+          <li class="off">AI chatbot</li>
+          <li class="off">Automation flows</li>
+          <li class="off">Social media management</li>
+        </ul>
+        <a href="#contact" class="plan-btn">Get Started</a>
+      </div>
+      <div class="plan featured r r1">
+        <div class="plan-badge">Most Popular</div>
+        <div class="plan-tier">Growth</div>
+        <div class="plan-price"><sub>$</sub>997</div>
+        <div class="plan-cadence">per month</div>
+        <div class="plan-desc">For businesses ready to accelerate with automation and consistent lead flow.</div>
+        <ul class="plan-features">
+          <li class="on">Everything in Starter</li>
+          <li class="on">Custom-trained AI chatbot</li>
+          <li class="on">Lead capture &amp; follow-up automation</li>
+          <li class="on">Automated review generation</li>
+          <li class="on">Email &amp; SMS marketing setup</li>
+          <li class="on">Monthly SEO reporting</li>
+          <li class="on">Bi-weekly strategy calls</li>
+          <li class="off">Full social media management</li>
+        </ul>
+        <a href="#contact" class="plan-btn">Get Started</a>
+      </div>
+      <div class="plan r r2">
+        <div class="plan-tier">Elite</div>
+        <div class="plan-price"><sub>$</sub>1,997</div>
+        <div class="plan-cadence">per month</div>
+        <div class="plan-desc">The complete done-for-you digital growth engine. Every service, fully managed.</div>
+        <ul class="plan-features">
+          <li class="on">Everything in Growth</li>
+          <li class="on">Full social media management</li>
+          <li class="on">Paid ads (Meta &amp; Google)</li>
+          <li class="on">Advanced revenue automation</li>
+          <li class="on">Dedicated account manager</li>
+          <li class="on">Weekly strategy calls</li>
+          <li class="on">Priority 24-hour support</li>
+          <li class="on">Quarterly growth audits</li>
+        </ul>
+        <a href="#contact" class="plan-btn">Get Started</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FAQ ── -->
+<section class="faq" id="faq">
+  <div class="max">
+    <div class="r">
+      <div class="label">FAQ</div>
+      <h2>Questions we hear<br><em>all the time</em></h2>
+    </div>
+    <div class="faq-body">
+      <div>
+        <div class="faq-item r">
+          <div class="faq-q"><h3>Do I need any tech experience?</h3><span class="faq-toggle">+</span></div>
+          <div class="faq-a">Not at all. We handle everything from design to launch. Whether you run a moving truck or a care home — if you can reply to an email, you can work with us. We build it, you run your business.</div>
+        </div>
+        <div class="faq-item r r1">
+          <div class="faq-q"><h3>How long until I see results?</h3><span class="faq-toggle">+</span></div>
+          <div class="faq-a">Most clients see measurable improvements within 30–60 days. Your website and AI chatbot go live within 2 weeks. SEO results compound over 3–6 months. Paid ads and automation show results almost immediately.</div>
+        </div>
+        <div class="faq-item r r2">
+          <div class="faq-q"><h3>What if I already have a website?</h3><span class="faq-toggle">+</span></div>
+          <div class="faq-a">We can redesign it, improve it, or build fresh — whichever makes more sense. We'll audit what you have and give you an honest assessment of what's holding you back before we start anything.</div>
+        </div>
+        <div class="faq-item r r3">
+          <div class="faq-q"><h3>Is there a long-term contract?</h3><span class="faq-toggle">+</span></div>
+          <div class="faq-a">Month-to-month, no long-term contracts. We earn your business every single month. Most clients stay because the results keep coming — not because they're locked in.</div>
+        </div>
+      </div>
+      <div>
+        <div class="faq-item r">
+          <div class="faq-q"><h3>Do you work with service-area businesses?</h3><span class="faq-toggle">+</span></div>
+          <div class="faq-a">Absolutely — movers, contractors, plumbers, landscapers, HVAC techs. We specialize in local SEO that gets you found across every city and neighborhood you serve, not just where you're physically located.</div>
+        </div>
+        <div class="faq-item r r1">
+          <div class="faq-q"><h3>How does the AI chatbot work for my business?</h3><span class="faq-toggle">+</span></div>
+          <div class="faq-a">We train a custom AI on your specific services, pricing, hours, and FAQs. It answers questions 24/7, captures leads, books estimates, and follows up via SMS — fully customized to how your business actually operates.</div>
+        </div>
+        <div class="faq-item r r2">
+          <div class="faq-q"><h3>What makes NexaFlow different?</h3><span class="faq-toggle">+</span></div>
+          <div class="faq-a">We only work with local small businesses. No Fortune 500 clients, no bloated retainers. We understand tight margins and busy schedules — and we build solutions that fit the real demands of running a local operation.</div>
+        </div>
+        <div class="faq-item r r3">
+          <div class="faq-q"><h3>What happens on the free strategy call?</h3><span class="faq-toggle">+</span></div>
+          <div class="faq-a">A 30-minute conversation with a real strategist. We review your current presence, identify your biggest gaps, and give you a clear picture of what we'd do — with no obligation to hire us. You'll walk away with real, actionable insights either way.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── CTA BAND ── -->
+<section class="cta-band">
+  <div class="cta-band-inner r">
+    <div class="label" style="text-align:center">Ready to Grow?</div>
+    <h2>Your competitors are already<br>investing in this. <em>Are you?</em></h2>
+    <p class="lead">Every month you wait is another month of potential customers choosing someone else. It starts with one free conversation.</p>
+    <div style="display:flex;gap:.9rem;justify-content:center;flex-wrap:wrap">
+      <a href="#contact" class="btn btn-dark">Book My Free Strategy Call <span class="btn-arrow">→</span></a>
+      <a href="tel:+18000000000" class="btn btn-outline">Call Us Directly</a>
+    </div>
+    <p class="cta-note">No contracts &nbsp;·&nbsp; No commitment &nbsp;·&nbsp; 30-day results guarantee</p>
+  </div>
+</section>
+
+<!-- ── CONTACT ── -->
+<section class="contact" id="contact">
+  <div class="max">
+    <div class="r">
+      <div class="label">Get In Touch</div>
+      <h2>Let's talk about<br>your <em>growth</em></h2>
+      <p class="lead" style="margin-top:1rem">Fill out the form and we'll reach out within one business day. No obligation, no pushy sales — just a real conversation.</p>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-aside r">
+        <div class="contact-points">
+          <div class="cp">
+            <div class="cp-ico">✆</div>
+            <div><div class="cp-lbl">Call or Text</div><div class="cp-val">+1 (800) 000-0000</div></div>
+          </div>
+          <div class="cp">
+            <div class="cp-ico">✉</div>
+            <div><div class="cp-lbl">Email</div><div class="cp-val">hello@nexaflowai.com</div></div>
+          </div>
+          <div class="cp">
+            <div class="cp-ico">◷</div>
+            <div><div class="cp-lbl">Response Time</div><div class="cp-val">Within 1 business day</div></div>
+          </div>
+        </div>
+        <div class="trust-row">
+          <div class="trust-chip">Free consultation</div>
+          <div class="trust-chip">No contracts</div>
+          <div class="trust-chip">30-day guarantee</div>
+          <div class="trust-chip">US-based team</div>
+          <div class="trust-chip">All industries welcome</div>
+        </div>
+      </div>
+      <div class="r r1">
+        <form class="cform" onsubmit="handleSubmit(event)">
+          <div class="frow">
+            <div class="fg"><label>First Name</label><input type="text" placeholder="Maria" required/></div>
+            <div class="fg"><label>Last Name</label><input type="text" placeholder="Reyes" required/></div>
+          </div>
+          <div class="fg"><label>Business Name</label><input type="text" placeholder="Your Business Name" required/></div>
+          <div class="fg">
+            <label>Industry</label>
+            <select required>
+              <option value="" disabled selected>Select your industry</option>
+              <optgroup label="Food &amp; Hospitality"><option>Restaurant / Café / Diner</option><option>Catering Company</option><option>Food Truck</option><option>Bakery / Dessert Shop</option></optgroup>
+              <optgroup label="Care &amp; Health"><option>Assisted Living / Senior Care</option><option>Memory Care Facility</option><option>Home Health Care</option></optgroup>
+              <optgroup label="Trades &amp; Services"><option>Moving Company</option><option>Auto Shop / Mechanic</option><option>General Contractor</option><option>Roofing / Windows / Siding</option><option>Plumbing / HVAC / Electric</option><option>Landscaping / Lawn Care</option><option>Cleaning Service</option></optgroup>
+              <optgroup label="Other"><option>Salon / Spa / Beauty</option><option>Retail / Boutique</option><option>Other Local Business</option></optgroup>
+            </select>
+          </div>
+          <div class="frow">
+            <div class="fg"><label>Email Address</label><input type="email" placeholder="you@yourbusiness.com" required/></div>
+            <div class="fg"><label>Phone Number</label><input type="tel" placeholder="+1 (555) 000-0000"/></div>
+          </div>
+          <div class="fg"><label>What's your biggest challenge right now?</label><textarea placeholder="Tell us where you're at and what you'd like to change..."></textarea></div>
+          <button type="submit" class="btn-submit" id="sub-btn">Request My Free Strategy Call →</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <div class="footer-top max">
+    <div class="footer-brand">
+      <a class="nav-logo" href="#">Nexa<span>Flow</span></a>
+      <p class="footer-tagline">AI-powered digital growth for local businesses — restaurants, care homes, moving companies, auto shops, contractors, and more.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Services</h4>
+      <a href="#services">Website Design</a>
+      <a href="#services">Local SEO</a>
+      <a href="#services">AI Automation</a>
+      <a href="#services">Revenue Growth</a>
+      <a href="#services">Social Media</a>
+    </div>
+    <div class="footer-col">
+      <h4>Industries</h4>
+      <a href="#who">Restaurants</a>
+      <a href="#who">Assisted Living</a>
+      <a href="#who">Moving Companies</a>
+      <a href="#who">Auto Shops</a>
+      <a href="#who">Contractors</a>
+    </div>
+    <div class="footer-col">
+      <h4>Company</h4>
+      <a href="#results">Case Studies</a>
+      <a href="#testimonials">Testimonials</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#faq">FAQ</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+  <div class="footer-bottom max">
+    <p>© 2025 NexaFlow AI. All rights reserved.</p>
+    <p>Designed for local businesses that deserve to grow.</p>
+  </div>
+</footer>
+
+<script>
+const obs = new IntersectionObserver(e=>{e.forEach(i=>{if(i.isIntersecting)i.target.classList.add('in')})},{threshold:.1});
+document.querySelectorAll('.r').forEach(el=>obs.observe(el));
+
+document.querySelectorAll('.faq-item').forEach(item=>{
+  item.querySelector('.faq-q').addEventListener('click',()=>{
+    const isOpen=item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(i=>i.classList.remove('open'));
+    if(!isOpen)item.classList.add('open');
+  });
+});
+
+function handleSubmit(e){
+  e.preventDefault();
+  const btn=document.getElementById('sub-btn');
+  btn.textContent='✓ Received — we\'ll be in touch within 1 business day.';
+  btn.style.background='#2a7a4a';
+  btn.disabled=true;
+}
+</script>
+
+<script>
+(function(){
+  const canvas = document.getElementById('hero-canvas');
+  const section = canvas.parentElement;
+  const ctx = canvas.getContext('2d');
+  const dpr = window.devicePixelRatio || 1;
+
+  let W, H;
+
+  function resize(){
+    W = section.offsetWidth;
+    H = section.offsetHeight;
+    canvas.width = W * dpr;
+    canvas.height = H * dpr;
+    canvas.style.width = W + 'px';
+    canvas.style.height = H + 'px';
+    ctx.scale(dpr, dpr);
+    initParticles();
+  }
+
+  const GOLD  = [184, 146, 42];
+  const CREAM = [245, 240, 232];
+
+  class Particle {
+    constructor(x, y, ordered){
+      this.ox = x; this.oy = y;
+      this.x = x;  this.y = y;
+      this.ordered = ordered;
+      this.sz = ordered ? 1.6 : 1.4;
+      this.vx = (Math.random()-.5)*2.2;
+      this.vy = (Math.random()-.5)*2.2;
+      this.inf = 0;
+      this.neighbors = [];
+    }
+    update(){
+      if(this.ordered){
+        const dx = this.ox - this.x;
+        const dy = this.oy - this.y;
+        let cx=0, cy=0;
+        this.neighbors.forEach(n=>{
+          if(!n.ordered){
+            const d = Math.hypot(this.x-n.x, this.y-n.y);
+            const s = Math.max(0, 1-d/110);
+            cx += n.vx*s; cy += n.vy*s;
+            this.inf = Math.max(this.inf, s);
+          }
+        });
+        this.x += dx*.05*(1-this.inf) + cx*this.inf;
+        this.y += dy*.05*(1-this.inf) + cy*this.inf;
+        this.inf *= .985;
+      } else {
+        this.vx += (Math.random()-.5)*.45;
+        this.vy += (Math.random()-.5)*.45;
+        this.vx *= .94; this.vy *= .94;
+        this.x += this.vx; this.y += this.vy;
+        const midX = W * .52;
+        if(this.x < midX || this.x > W){ this.vx *= -1; }
+        if(this.y < 0   || this.y > H){ this.vy *= -1; }
+        this.x = Math.max(midX, Math.min(W, this.x));
+        this.y = Math.max(0,    Math.min(H, this.y));
+      }
+    }
+    draw(){
+      const a = this.ordered ? (.75 - this.inf*.45) : .72;
+      const [r,g,b] = this.ordered ? CREAM : GOLD;
+      ctx.fillStyle = `rgba(${r},${g},${b},${a})`;
+      ctx.beginPath();
+      ctx.arc(this.x, this.y, this.sz, 0, Math.PI*2);
+      ctx.fill();
+    }
+  }
+
+  let particles = [];
+
+  function initParticles(){
+    particles = [];
+    const cols = Math.floor(W / 28);
+    const rows = Math.floor(H / 28);
+    const sx = W / cols;
+    const sy = H / rows;
+    for(let i=0;i<cols;i++){
+      for(let j=0;j<rows;j++){
+        const x = sx*i + sx/2 + (Math.random()-.5)*4;
+        const y = sy*j + sy/2 + (Math.random()-.5)*4;
+        particles.push(new Particle(x, y, x < W*.5));
+      }
+    }
+  }
+
+  function updateNeighbors(){
+    particles.forEach(p=>{
+      p.neighbors = particles.filter(o=>{
+        if(o===p) return false;
+        return Math.hypot(p.x-o.x, p.y-o.y) < 110;
+      });
+    });
+  }
+
+  let tick = 0;
+  let raf;
+
+  function animate(){
+    ctx.clearRect(0,0,W,H);
+
+    if(tick % 30 === 0) updateNeighbors();
+
+    particles.forEach(p=>{
+      p.update();
+      p.draw();
+      p.neighbors.forEach(n=>{
+        const d = Math.hypot(p.x-n.x, p.y-n.y);
+        if(d < 52){
+          const a = .18*(1-d/52);
+          const [r,g,b] = p.ordered ? CREAM : GOLD;
+          ctx.strokeStyle = `rgba(${r},${g},${b},${a})`;
+          ctx.lineWidth = .5;
+          ctx.beginPath();
+          ctx.moveTo(p.x, p.y);
+          ctx.lineTo(n.x, n.y);
+          ctx.stroke();
+        }
+      });
+    });
+
+    ctx.strokeStyle = 'rgba(184,146,42,0.18)';
+    ctx.lineWidth = .5;
+    ctx.setLineDash([6,8]);
+    ctx.beginPath();
+    ctx.moveTo(W*.5, 0);
+    ctx.lineTo(W*.5, H);
+    ctx.stroke();
+    ctx.setLineDash([]);
+
+    tick++;
+    raf = requestAnimationFrame(animate);
+  }
+
+  window.addEventListener('resize', ()=>{ cancelAnimationFrame(raf); resize(); animate(); });
+  resize();
+  animate();
+})();
+</script>
+</body>
+</html>
